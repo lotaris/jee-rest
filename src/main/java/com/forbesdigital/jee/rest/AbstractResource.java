@@ -28,9 +28,15 @@ public abstract class AbstractResource {
 		doPostConstruct();
 	}
 	
+	/**
+	 * Allow to add logic in the post construct phase
+	 */
 	protected void doPostConstruct() {
 	}
 	
+	/**
+	 * @return Retrieve the implementation of a ConstraintConverter
+	 */
 	protected abstract IConstraintConverter getConstraintConverter();
 	
 	/**

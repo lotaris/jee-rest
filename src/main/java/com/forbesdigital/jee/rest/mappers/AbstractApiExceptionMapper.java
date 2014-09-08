@@ -32,10 +32,16 @@ public abstract class AbstractApiExceptionMapper<E extends Exception> implements
 		// do nothing to avoid forcing to implement that method
 	}
 	
+	/**
+	 * @return Error code of this ExceptionMapper
+	 */
 	protected IErrorCode getCode() {
 		return MapperMapping.getMapping(this).getCode();
 	}
 	
+	/**
+	 * @return Location type of this ExceptionMapper
+	 */
 	protected IErrorLocationType getLocationType() {
 		return MapperMapping.getMapping(this).getLocationType();
 	}

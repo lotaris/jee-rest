@@ -6,7 +6,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- *
+ * Allow defining a default location type directly configured on the ExceptionMapper class
+ * 
  * @author Laurent Prevost <laurent.prevost@lotaris.com>
  */
 @Retention(RetentionPolicy.RUNTIME)
@@ -14,6 +15,9 @@ import java.lang.annotation.Target;
 public @interface DefaultLocationType {
 	String value();
 
+	/**
+	 * Class constants
+	 */
 	public static class LocationTypes {
 		public static final String JSON_LOCATION_TYPE = "json";
 	

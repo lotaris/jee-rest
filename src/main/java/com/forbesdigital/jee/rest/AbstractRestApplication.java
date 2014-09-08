@@ -87,14 +87,29 @@ public abstract class AbstractRestApplication extends Application {
 	 */
 	protected abstract String[] getPackages();
 	
+	/**
+	 * @return Retrieve the mapping configuration between ExceptionMappers and ErrorCodes
+	 */
 	protected abstract MapperMappingDefinition[] retrieveMappersConfiguration();
 
+	/**
+	 * Build the map from a list of mapping
+	 * 
+	 * @param mapperMappingDefinition The list of mappings
+	 * @return The mapping configuration ready to use
+	 */
 	protected MapperMappingDefinition[] map(MapperMappingDefinition ... mapperMappingDefinition) {
 		return mapperMappingDefinition;
 	}
 
+	/**
+	 * Build a mapping configuration element. Bind an ErrorCode to an ExceptionMapper
+	 * 
+	 * @param mapper The ExceptionMapper to bind
+	 * @param code The ErrorCode for the binding
+	 * @return The mapper definition
+	 */
 	protected MapperMappingDefinition def(Class<? extends AbstractApiExceptionMapper> mapper, IErrorCode code) {
 		return new MapperMappingDefinition(mapper, code);
 	}
-	
 }
