@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The REST library helps you dealing with HTTP request of the REST API. It abstracts the serialization, helps mapping
+The REST library helps you deal with HTTP requests in a REST API. It abstracts the serialization, helps mapping
 errors and contains functions that make response creation easier.
 
 
@@ -65,7 +65,7 @@ There are several noteworthy parts:
     that are annotated with `@Path` are automatically registered in the application container as REST resources.
   - In the [getSingletons()][getSingletons] method, you can set up your root resources, providers and feature instances
     as you would normally with Jersey.
-  - The `retrieveMappersConfiguration()` method was added by the REST libary and provides a way of adding exceptions to
+  - The `retrieveMappersConfiguration()` method was added by the REST libary and provides a way of mapping exceptions to
     a specific error code.
 
 
