@@ -6,9 +6,49 @@ The REST library helps you deal with HTTP requests in a REST API. It abstracts t
 errors and contains functions that make response creation easier.
 
 
-## Bootstrapping the Library
+## Bootstrapping the Library in a Maven project
 
-In order to register a REST application, you should extend [AbstractRestApplication][AbstractRestApplication] and 
+In a standard maven multi-module project like we have (EAR / EJB / WAR / JAR), it is required to manage the dependency properly.
+
+First thing to do is to add the dependency in the `dependencyManagement` section in the `<artifactIdPrefix>/pom.xml`. You can copy/paste the following dependency definition.
+
+```xml
+<!-- Rest -->
+<dependency>
+	<groupId>com.forbesdigital.jee</groupId>
+	<artifactId>rest</artifactId>
+	<version>[[ version ]]</version>
+</dependency>
+```
+
+**Remark:** Replace the version by the correct version you need in your project. At each version update you need, you will need to only update the version there. It will avoid tricky issues where different versions are defined for a same dependency.
+
+Then, you need to put the dependency in your EJB and EJB-Test modules. (`<artifactIdPrefix>/<artifactIdPrefix>-ejb/pom.xml` and `<artifactIdPrefix>/<artifactIdPrefix>-ejb-test/pom.xml`). This time, you will add the dependency in the `dependencies`.
+
+```xml
+<dependency>
+	<groupId>com.forbesdigital.jee</groupId>
+	<artifactId>rest</artifactId>
+	<scope>provided</scope>
+</dependency>
+```
+
+**Remark:** You will not specify the `version` because this already done in the parent pom file. This means that the version is inherited. The `scope` is there to manage properly the packaging and the dependencies packaged in the different jar/war/ear files.
+
+And finally, you need to put the dependency in your WAR and WAR-Test modules. (`<artifactIdPrefix>/<artifactIdPrefix>-war/pom.xml` and `<artifactIdPrefix>/<artifactIdPrefix>-war-test/pom.xml`). Again, you will add the dependency in the `dependencies`.
+
+```xml
+<dependency>
+	<groupId>com.forbesdigital.jee</groupId>
+	<artifactId>rest</artifactId>
+</dependency>
+```
+
+**Remark:** No `version` for the same reason that before. No `scope` because we need to package the dependency in the war.
+
+## Bootstrapping the Library in the code
+
+In order to register a REST application, you should extend [AbstractRestApplication][AbstractRestApplication] and
 annotate it with `@ApplicationPath`.
 
 
@@ -31,7 +71,7 @@ public class MyRestApplication extends AbstractRestApplication {
 	protected String[] getPackages() {
 		return new String[] { getClass().getPackage().getName() };
 	}
-	
+
 	@Override
 	public Set<Object> getSingletons() {
 		final Set<Object> singletons = new HashSet<>(2);
@@ -42,7 +82,7 @@ public class MyRestApplication extends AbstractRestApplication {
 	@Override
 	protected MapperMappingDefinition[] retrieveMappersConfiguration() {
 		return map(
-		
+
 			// Standard exception mappers bound to API Error codes from App
 			def(CatchAllExceptionMapper.class, EApiErrorCodes.SERVER_UNEXPECTED),
 			def(EOFExceptionMapper.class, EApiErrorCodes.REQUEST_END_OF_INPUT),
@@ -50,7 +90,7 @@ public class MyRestApplication extends AbstractRestApplication {
 			def(JsonParseExceptionMapper.class, EApiErrorCodes.REQUEST_INVALID_JSON),
 			def(NotAcceptableExceptionMapper.class, EApiErrorCodes.REQUEST_UNACCEPTABLE_MEDIA_TYPE),
 			def(NotFoundExceptionMapper.class, EApiErrorCodes.REQUEST_RESOURCE_NOT_FOUND),
-			
+
 			// Custom exception mapper bound to API Error codes from App
 			def(PermissionExceptionMapper.class, EApiErrorCodes.ACCESS_REQUIRED_PERMISSION_MISSING),
 			def(UniqueStringExceptionMapper.class, EApiErrorCodes.SERVER_KEY_GENERATION_FAILED)
@@ -73,7 +113,7 @@ There are several noteworthy parts:
 
   - [Laurent Prevost][lprevost]
   - [Simon Oulevay][soulevay]
- 
+
 
 [AbstractRestApplication]: src/main/java/com/forbesdigital/jee/rest/AbstractRestApplication.java
 [ExceptionMapper]: https://jersey.java.net/apidocs/2.11/jersey/javax/ws/rs/ext/ExceptionMapper.html
