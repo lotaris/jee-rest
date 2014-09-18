@@ -6,11 +6,13 @@ The REST library helps you deal with HTTP requests in a REST API. It abstracts t
 errors and contains functions that make response creation easier.
 
 
-## Bootstrapping the Library in a Maven project
+## Bootstrapping the Library in a Maven Project
 
-In a standard maven multi-module project like we have (EAR / EJB / WAR / JAR), it is required to manage the dependency properly.
+In a standard Maven multi-module project like we have (EAR / EJB / WAR / JAR), you'll need to setup the dependency as
+follows.
 
-First thing to do is to add the dependency in the `dependencyManagement` section in the `<artifactIdPrefix>/pom.xml`. You can copy/paste the following dependency definition.
+The first thing to do is to add the dependency in the `dependencyManagement` section in the `<artifactIdPrefix>/pom.xml`. 
+You can copy/paste the following dependency definition:
 
 ```xml
 <!-- Rest -->
@@ -21,9 +23,12 @@ First thing to do is to add the dependency in the `dependencyManagement` section
 </dependency>
 ```
 
-**Remark:** Replace the version by the correct version you need in your project. At each version update you need, you will need to only update the version there. It will avoid tricky issues where different versions are defined for a same dependency.
+**Note:** Replace `[[ version ]]` by the correct version you need in your project. At each version update, you can then
+bump the version in here. This avoids tricky issues where different versions are defined for a same dependency.
 
-Then, you need to put the dependency in your EJB and EJB-Test modules. (`<artifactIdPrefix>/<artifactIdPrefix>-ejb/pom.xml` and `<artifactIdPrefix>/<artifactIdPrefix>-ejb-test/pom.xml`). This time, you will add the dependency in the `dependencies`.
+Secondly, you'll need to put the dependency in your EJB and EJB-Test modules. (`<artifactIdPrefix>/<artifactIdPrefix>-ejb/pom.xml`
+and `<artifactIdPrefix>/<artifactIdPrefix>-ejb-test/pom.xml`). This time, you will add the dependency under 
+`dependencies`:
 
 ```xml
 <dependency>
@@ -33,9 +38,12 @@ Then, you need to put the dependency in your EJB and EJB-Test modules. (`<artifa
 </dependency>
 ```
 
-**Remark:** You will not specify the `version` because this already done in the parent pom file. This means that the version is inherited. The `scope` is there to manage properly the packaging and the dependencies packaged in the different jar/war/ear files.
+**Note:** You will not specify the version because this already done in the parent `pom.xml` file. This means that the
+version is inherited. The `<scope>` is there to manage properly the packaging and the dependencies packaged in the 
+different jar/war/ear files.
 
-And finally, you need to put the dependency in your WAR and WAR-Test modules. (`<artifactIdPrefix>/<artifactIdPrefix>-war/pom.xml` and `<artifactIdPrefix>/<artifactIdPrefix>-war-test/pom.xml`). Again, you will add the dependency in the `dependencies`.
+Finally, you need to put the dependency in your WAR and WAR-Test modules. (`<artifactIdPrefix>/<artifactIdPrefix>-war/pom.xml`
+and `<artifactIdPrefix>/<artifactIdPrefix>-war-test/pom.xml`). Again, dependency goes under `dependencies`:
 
 ```xml
 <dependency>
@@ -44,9 +52,11 @@ And finally, you need to put the dependency in your WAR and WAR-Test modules. (`
 </dependency>
 ```
 
-**Remark:** No `version` for the same reason that before. No `scope` because we need to package the dependency in the war.
+**Note:** No `<version>` for the same reason than before. No `<scope>` because we need to package the dependency in the
+war.
 
-## Bootstrapping the Library in the code
+
+## Bootstrapping the Library in the Code
 
 In order to register a REST application, you should extend [AbstractRestApplication][AbstractRestApplication] and
 annotate it with `@ApplicationPath`.
