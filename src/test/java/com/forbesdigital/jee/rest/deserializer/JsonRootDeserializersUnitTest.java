@@ -2,6 +2,8 @@ package com.forbesdigital.jee.rest.deserializer;
 
 import com.lotaris.rox.annotations.RoxableTest;
 import com.lotaris.rox.annotations.RoxableTestClass;
+import java.util.HashMap;
+import java.util.Map;
 import org.codehaus.jackson.map.JsonDeserializer;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.type.SimpleType;
@@ -11,6 +13,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
+import org.mockito.internal.util.reflection.Whitebox;
 
 /**
  *
@@ -20,6 +23,8 @@ import static org.mockito.Mockito.*;
 public class JsonRootDeserializersUnitTest {
 	
 	private JsonRootDeserializers jsonRootDeserializer;
+	
+	private JsonRootWrapper<Map<String, Integer>> jsonRootWrapper = new JsonRootWrapper<>();
 	
 	@Before
 	public void setUp() {
@@ -44,18 +49,21 @@ public class JsonRootDeserializersUnitTest {
 	@Test
 	@RoxableTest(key = "ee1d7bd61b13")
 	public void jsonRootDeserializerShouldReturnExistingDeserializerIfAny() {
-		JavaType type = SimpleType.construct(JsonRootWrapper.class);
-		JsonDeserializer d = null;
+		JavaType type = SimpleType.construct(jsonRootWrapper.getClass());
+		JsonRootWrapperDeserializer expectedDeserializer = new JsonRootWrapperDeserializer(type.containedType(0).getRawClass());
+		JsonDeserializer actualDeserializer = null;
 		
-		when(type.containedType(0).getRawClass()).thenReturn(type.getClass());
+		HashMap<Class, JsonRootWrapperDeserializer> deserializers = (HashMap<Class, JsonRootWrapperDeserializer>) Whitebox.getInternalState(jsonRootDeserializer, "deserializers");
+		when(deserializers.containsKey(type.containedType(0).getRawClass())).thenReturn(Boolean.TRUE);
+		when(deserializers.get(type.containedType(0).getRawClass())).thenReturn(expectedDeserializer);
 			
 		try {
-			d = jsonRootDeserializer.findBeanDeserializer(type, null, null, null, null);
+			actualDeserializer = jsonRootDeserializer.findBeanDeserializer(type, null, null, null, null);
 		} catch (JsonMappingException ex) {
 			fail("Unexpected exception when finding Bean Deserializer");
 		}
 		
-		assertNull(d);
+		assertEquals(expectedDeserializer, actualDeserializer);
 	}
 	
 }
