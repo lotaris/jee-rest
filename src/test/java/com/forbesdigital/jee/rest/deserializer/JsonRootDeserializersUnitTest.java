@@ -9,6 +9,8 @@ import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.type.SimpleType;
 import org.codehaus.jackson.map.type.TypeBase;
 import org.codehaus.jackson.type.JavaType;
+import org.hamcrest.BaseMatcher;
+import org.hamcrest.Description;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -73,6 +75,38 @@ public class JsonRootDeserializersUnitTest {
 		}
 		
 		assertEquals(expectedDeserializer, actualDeserializer);
+	}
+	
+	@Test
+	@RoxableTest(key = "59523c16bbb0")
+	public void jsonRootDeserializerShouldReturnNewDeserializerIfAny() {
+		JavaType type = new TestType(JsonRootWrapper.class, Integer.class);
+		
+		Object actualDeserializer = null;
+		
+		Whitebox.setInternalState(jsonRootDeserializer, "deserializers", deserializers);
+		when(deserializers.containsKey(type.containedType(0).getRawClass())).thenReturn(Boolean.FALSE);
+			
+		try {
+			actualDeserializer = jsonRootDeserializer.findBeanDeserializer(type, null, null, null, null);
+		} catch (JsonMappingException ex) {
+			fail("Unexpected exception when finding Bean Deserializer");
+		}
+		
+		assertTrue(actualDeserializer instanceof JsonRootWrapperDeserializer);
+		verify(deserializers).put(eq(type.containedType(0).getRawClass()), argThat(new BaseMatcher<JsonRootWrapperDeserializer>() {
+
+			@Override
+			public boolean matches(Object item) {
+				return item instanceof JsonRootWrapperDeserializer;
+			}
+
+			@Override
+			public void describeTo(Description description) {
+				description.appendText("an instance of JsonRootWrapperDeseralizer");
+			}
+			
+		}));
 	}
 
 	public static class TestType extends TypeBase {
