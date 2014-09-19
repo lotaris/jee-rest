@@ -59,8 +59,8 @@ public abstract class AbstractRestApplication extends Application {
 		// Scan every packages to get @Path annotated classes
 		for (String pckg : getPackages()) {
 			classes.addAll(new Reflections(
-					ClasspathHelper.forPackage(pckg), new TypeAnnotationsScanner(), new FilterBuilder().includePackage(pckg)).
-					getTypesAnnotatedWith(Path.class));
+				ClasspathHelper.forPackage(pckg), new TypeAnnotationsScanner(), new FilterBuilder().includePackage(pckg)).
+				getTypesAnnotatedWith(Path.class));
 		}
 
 		if (LOG.isTraceEnabled()) {
