@@ -7,9 +7,12 @@ import java.util.Map;
 import org.codehaus.jackson.map.JsonDeserializer;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.type.SimpleType;
+import org.codehaus.jackson.map.type.TypeBase;
 import org.codehaus.jackson.type.JavaType;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
@@ -24,10 +27,15 @@ public class JsonRootDeserializersUnitTest {
 	
 	private JsonRootDeserializers jsonRootDeserializer;
 	
-	private JsonRootWrapper<Map<String, Integer>> jsonRootWrapper = new JsonRootWrapper<>();
+	private JsonRootWrapper<Object> jsonRootWrapper = new JsonRootWrapper<>();
+	
+	@Mock
+	private Map<Class, JsonRootWrapperDeserializer> deserializers = new HashMap<>();
 	
 	@Before
 	public void setUp() {
+		MockitoAnnotations.initMocks(this);
+
 		jsonRootDeserializer = new JsonRootDeserializers();
 	}
 	
@@ -49,11 +57,12 @@ public class JsonRootDeserializersUnitTest {
 	@Test
 	@RoxableTest(key = "ee1d7bd61b13")
 	public void jsonRootDeserializerShouldReturnExistingDeserializerIfAny() {
-		JavaType type = SimpleType.construct(jsonRootWrapper.getClass());
+		JavaType type = new TestType(JsonRootWrapper.class, Integer.class);
+		
 		JsonRootWrapperDeserializer expectedDeserializer = new JsonRootWrapperDeserializer(type.containedType(0).getRawClass());
 		JsonDeserializer actualDeserializer = null;
 		
-		HashMap<Class, JsonRootWrapperDeserializer> deserializers = (HashMap<Class, JsonRootWrapperDeserializer>) Whitebox.getInternalState(jsonRootDeserializer, "deserializers");
+		Whitebox.setInternalState(jsonRootDeserializer, "deserializers", deserializers);
 		when(deserializers.containsKey(type.containedType(0).getRawClass())).thenReturn(Boolean.TRUE);
 		when(deserializers.get(type.containedType(0).getRawClass())).thenReturn(expectedDeserializer);
 			
@@ -65,5 +74,29 @@ public class JsonRootDeserializersUnitTest {
 		
 		assertEquals(expectedDeserializer, actualDeserializer);
 	}
+
+	public static class TestType extends TypeBase {
+		private Class genericClass;
+		public TestType(Class baseClass, Class genericClass) {
+			super(baseClass, 1);
+			this.genericClass = genericClass;
+		}
 	
+		@Override protected String buildCanonicalName() { return JsonRootWrapper.class.getCanonicalName(); }
+		@Override public StringBuilder getGenericSignature(StringBuilder sb) { return sb; }
+		@Override public StringBuilder getErasedSignature(StringBuilder sb) { return sb; }
+		@Override public JavaType withTypeHandler(Object h) { return SimpleType.construct(h.getClass()); }
+		@Override public JavaType withContentTypeHandler(Object h) { return SimpleType.construct(h.getClass()); }
+		@Override protected JavaType _narrow(Class<?> subclass) { return SimpleType.construct(subclass); }
+		@Override public JavaType narrowContentsBy(Class<?> contentClass) { return SimpleType.construct(contentClass); }
+		@Override public JavaType widenContentsBy(Class<?> contentClass) { return SimpleType.construct(contentClass); }
+		@Override public boolean isContainerType() { return true; }
+		@Override public String toString() { return ""; }
+		@Override public boolean equals(Object o) { return o == this; }
+			
+		@Override 
+		public JavaType containedType(int index) {
+			return SimpleType.construct(genericClass);
+		}
+	}
 }
