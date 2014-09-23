@@ -32,7 +32,7 @@ public class JsonRootDeserializersUnitTest {
 	private JsonRootWrapper<Object> jsonRootWrapper = new JsonRootWrapper<>();
 	
 	@Mock
-	private Map<Class, JsonRootWrapperDeserializer> deserializers = new HashMap<>();
+	private Map<Class, JsonRootWrapperDeserializer> deserializers;
 	
 	@Before
 	public void setUp() {
