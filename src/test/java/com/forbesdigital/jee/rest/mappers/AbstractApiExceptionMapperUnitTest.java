@@ -4,8 +4,6 @@ import com.forbesdigital.jee.rest.ApiResponse;
 import com.forbesdigital.jee.validation.ApiErrorResponse;
 import com.lotaris.rox.annotations.RoxableTest;
 import javax.ws.rs.core.Response;
-import org.hamcrest.BaseMatcher;
-import org.hamcrest.Description;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
