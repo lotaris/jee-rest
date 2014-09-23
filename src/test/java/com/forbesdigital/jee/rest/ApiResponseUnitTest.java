@@ -4,6 +4,7 @@ import com.lotaris.rox.annotations.RoxableTest;
 import com.lotaris.rox.annotations.RoxableTestClass;
 import javax.ws.rs.core.Response;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**

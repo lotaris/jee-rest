@@ -2,15 +2,15 @@ package com.forbesdigital.jee.rest.providers;
 
 import com.forbesdigital.jee.rest.mappers.ApiErrorsExceptionMapper;
 import com.forbesdigital.jee.rest.mappers.JsonObjectMapper;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-
 import com.lotaris.rox.annotations.RoxableTest;
 import com.lotaris.rox.annotations.RoxableTestClass;
 import java.util.Set;
 import org.glassfish.jersey.jackson.JacksonFeature;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
 
 /**
  * @see ApiProviders

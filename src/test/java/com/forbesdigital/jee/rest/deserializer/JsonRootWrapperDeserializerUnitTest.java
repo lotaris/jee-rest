@@ -18,7 +18,6 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.node.ArrayNode;
 import org.codehaus.jackson.node.IntNode;
 import org.codehaus.jackson.node.JsonNodeFactory;
-import org.codehaus.jackson.util.JsonParserSequence;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

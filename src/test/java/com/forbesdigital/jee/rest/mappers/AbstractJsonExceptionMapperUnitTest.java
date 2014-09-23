@@ -2,6 +2,7 @@ package com.forbesdigital.jee.rest.mappers;
 
 import com.forbesdigital.jee.validation.ApiErrorResponse;
 import com.lotaris.rox.annotations.RoxableTest;
+import com.lotaris.rox.annotations.RoxableTestClass;
 import org.codehaus.jackson.JsonLocation;
 import org.codehaus.jackson.JsonProcessingException;
 import org.junit.Before;
@@ -16,6 +17,7 @@ import static org.mockito.Mockito.*;
  *
  * @author Baptiste Roth (baptiste.roth@lotaris.com)
  */
+@RoxableTestClass(tags = {"mappers"})
 public class AbstractJsonExceptionMapperUnitTest {
 	
 	private TestJsonExceptionMapper jsonExceptionMapper;

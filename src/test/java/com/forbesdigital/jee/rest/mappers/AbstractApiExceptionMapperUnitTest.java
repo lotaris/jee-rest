@@ -3,6 +3,7 @@ package com.forbesdigital.jee.rest.mappers;
 import com.forbesdigital.jee.rest.ApiResponse;
 import com.forbesdigital.jee.validation.ApiErrorResponse;
 import com.lotaris.rox.annotations.RoxableTest;
+import com.lotaris.rox.annotations.RoxableTestClass;
 import javax.ws.rs.core.Response;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,6 +19,7 @@ import static org.mockito.Mockito.*;
  * 
  * @author Baptiste Roth (baptiste.roth@lotaris.com)
  */
+@RoxableTestClass(tags = {"mappers"})
 public class AbstractApiExceptionMapperUnitTest {
 	
 	private TestApiExceptionMapper apiExceptionMapper;
