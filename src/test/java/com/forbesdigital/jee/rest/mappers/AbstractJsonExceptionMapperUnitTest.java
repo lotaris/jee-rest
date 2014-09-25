@@ -6,15 +6,15 @@ import com.lotaris.rox.annotations.RoxableTestClass;
 import org.codehaus.jackson.JsonLocation;
 import org.codehaus.jackson.JsonProcessingException;
 import org.junit.Before;
+import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import static org.junit.Assert.*;
-import org.junit.Test;
 import static org.mockito.Mockito.*;
 
 /**
- *
+ * @see AbstractJsonExceptionMapper
  * @author Baptiste Roth (baptiste.roth@lotaris.com)
  */
 @RoxableTestClass(tags = {"mappers"})

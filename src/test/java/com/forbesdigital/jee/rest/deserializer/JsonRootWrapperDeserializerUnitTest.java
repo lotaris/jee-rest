@@ -27,8 +27,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 /**
- * Unit tests for the JsonRootWrapperDeserializer. 
- * 
+ * @see JsonRootWrapperDeserializer 
  * @author Baptiste Roth (baptiste.roth@forbes-digital.com)
  */
 @RoxableTestClass(tags = {"jsonDeserializers"})
@@ -100,115 +99,28 @@ public class JsonRootWrapperDeserializerUnitTest {
 		}
 
 		// <editor-fold defaultstate="collapsed" desc="Unimplemented methods">
-		@Override
-		public void setCodec(ObjectCodec c) {
-			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-		}
-
-		@Override
-		public void close() throws IOException {
-			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-		}
-
-		@Override
-		public JsonToken nextToken() throws IOException, JsonParseException {
-			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-		}
-
-		@Override
-		public JsonParser skipChildren() throws IOException, JsonParseException {
-			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-		}
-
-		@Override
-		public boolean isClosed() {
-			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-		}
-
-		@Override
-		public String getCurrentName() throws IOException, JsonParseException {
-			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-		}
-
-		@Override
-		public JsonStreamContext getParsingContext() {
-			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-		}
-
-		@Override
-		public JsonLocation getTokenLocation() {
-			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-		}
-
-		@Override
-		public JsonLocation getCurrentLocation() {
-			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-		}
-
-		@Override
-		public String getText() throws IOException, JsonParseException {
-			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-		}
-
-		@Override
-		public char[] getTextCharacters() throws IOException, JsonParseException {
-			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-		}
-
-		@Override
-		public int getTextLength() throws IOException, JsonParseException {
-			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-		}
-
-		@Override
-		public int getTextOffset() throws IOException, JsonParseException {
-			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-		}
-
-		@Override
-		public Number getNumberValue() throws IOException, JsonParseException {
-			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-		}
-
-		@Override
-		public JsonParser.NumberType getNumberType() throws IOException, JsonParseException {
-			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-		}
-
-		@Override
-		public int getIntValue() throws IOException, JsonParseException {
-			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-		}
-
-		@Override
-		public long getLongValue() throws IOException, JsonParseException {
-			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-		}
-
-		@Override
-		public BigInteger getBigIntegerValue() throws IOException, JsonParseException {
-			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-		}
-
-		@Override
-		public float getFloatValue() throws IOException, JsonParseException {
-			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-		}
-
-		@Override
-		public double getDoubleValue() throws IOException, JsonParseException {
-			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-		}
-
-		@Override
-		public BigDecimal getDecimalValue() throws IOException, JsonParseException {
-			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-		}
-
-		@Override
-		public byte[] getBinaryValue(Base64Variant b64variant) throws IOException, JsonParseException {
-			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-		}
+		@Override public void setCodec(ObjectCodec c) {throw new UnsupportedOperationException("Not required for tests.");}
+		@Override public void close() throws IOException {throw new UnsupportedOperationException("Not required for tests.");}
+		@Override public JsonToken nextToken() throws IOException, JsonParseException {throw new UnsupportedOperationException("Not required for tests.");}
+		@Override public JsonParser skipChildren() throws IOException, JsonParseException {throw new UnsupportedOperationException("Not required for tests.");}
+		@Override public boolean isClosed() {throw new UnsupportedOperationException("Not required for tests.");}
+		@Override public String getCurrentName() throws IOException, JsonParseException {throw new UnsupportedOperationException("Not required for tests.");}
+		@Override public JsonStreamContext getParsingContext() {throw new UnsupportedOperationException("Not required for tests.");}
+		@Override public JsonLocation getTokenLocation() {throw new UnsupportedOperationException("Not required for tests.");}
+		@Override public JsonLocation getCurrentLocation() {throw new UnsupportedOperationException("Not required for tests.");}
+		@Override public String getText() throws IOException, JsonParseException {throw new UnsupportedOperationException("Not required for tests.");}
+		@Override public char[] getTextCharacters() throws IOException, JsonParseException {throw new UnsupportedOperationException("Not required for tests.");}
+		@Override public int getTextLength() throws IOException, JsonParseException {throw new UnsupportedOperationException("Not required for tests.");}
+		@Override public int getTextOffset() throws IOException, JsonParseException {throw new UnsupportedOperationException("Not required for tests.");}
+		@Override public Number getNumberValue() throws IOException, JsonParseException {throw new UnsupportedOperationException("Not required for tests.");}
+		@Override public JsonParser.NumberType getNumberType() throws IOException, JsonParseException {throw new UnsupportedOperationException("Not required for tests.");}
+		@Override public int getIntValue() throws IOException, JsonParseException {throw new UnsupportedOperationException("Not required for tests.");}
+		@Override public long getLongValue() throws IOException, JsonParseException {throw new UnsupportedOperationException("Not required for tests.");}
+		@Override public BigInteger getBigIntegerValue() throws IOException, JsonParseException {throw new UnsupportedOperationException("Not required for tests.");}
+		@Override public float getFloatValue() throws IOException, JsonParseException {throw new UnsupportedOperationException("Not required for tests.");}
+		@Override public double getDoubleValue() throws IOException, JsonParseException {throw new UnsupportedOperationException("Not required for tests.");}
+		@Override public BigDecimal getDecimalValue() throws IOException, JsonParseException {throw new UnsupportedOperationException("Not required for tests.");}
+		@Override public byte[] getBinaryValue(Base64Variant b64variant) throws IOException, JsonParseException {throw new UnsupportedOperationException("Not required for tests.");}
 		// </editor-fold>
 	}
 	
@@ -235,10 +147,7 @@ public class JsonRootWrapperDeserializerUnitTest {
 		}
 
 		// <editor-fold defaultstate="collapsed" desc="Unimplemented methods">
-		@Override
-		public void remove() {
-			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-		}
+		@Override public void remove() {throw new UnsupportedOperationException("Not required for tests.");}
 		// </editor-fold>
 	}
 }

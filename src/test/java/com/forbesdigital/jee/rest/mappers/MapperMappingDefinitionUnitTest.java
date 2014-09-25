@@ -7,8 +7,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Unit tests for the MapperMappingDefinition.
- * 
+ * @see MapperMappingDefinition
  * @author Baptiste Roth (baptiste.roth@lotaris.com)
  */
 @RoxableTestClass(tags = {"mappers"})

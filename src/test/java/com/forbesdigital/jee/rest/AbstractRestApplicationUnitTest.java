@@ -8,7 +8,6 @@ import com.forbesdigital.jee.test.AnotherPathAnnotatedForAbstractRestApplication
 import com.forbesdigital.jee.test.PathAnnotatedClassForAbstractRestApplicationUnitTest;
 import com.lotaris.rox.annotations.RoxableTest;
 import com.lotaris.rox.annotations.RoxableTestClass;
-import java.util.HashSet;
 import java.util.Set;
 import org.glassfish.jersey.jackson.JacksonFeature;
 import org.junit.Before;
@@ -17,11 +16,9 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.internal.util.reflection.Whitebox;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
 
 /**
- * Unit tests for the AbstractRestApplication class.
- * 
+ * @see AbstractRestApplication
  * @author Baptiste Roth (baptiste.roth@lotaris.com)
  */
 @RoxableTestClass(tags = {"rest"})

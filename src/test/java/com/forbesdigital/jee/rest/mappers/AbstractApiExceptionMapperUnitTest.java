@@ -15,8 +15,7 @@ import static org.mockito.Mockito.*;
 
 
 /**
- * Unit tests for the AbstractApiExceptionMapper.
- * 
+ * @see AbstractApiExceptionMapper
  * @author Baptiste Roth (baptiste.roth@lotaris.com)
  */
 @RoxableTestClass(tags = {"mappers"})

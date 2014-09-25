@@ -10,8 +10,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Unit tests for the JsonRootWrapper.
- * 
+ * @see JsonRootWrapper
  * @author Baptiste Roth (baptiste.roth@forbes-digital.com)
  */
 @RoxableTestClass(tags = {"jsonDeserializers"})
