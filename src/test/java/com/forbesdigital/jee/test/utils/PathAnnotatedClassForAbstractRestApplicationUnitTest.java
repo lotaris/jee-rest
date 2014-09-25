@@ -1,10 +1,10 @@
-package com.forbesdigital.jee.test;
+package com.forbesdigital.jee.test.utils;
 
 import javax.ws.rs.Path;
 
 /**
- * This class is used in AbstractRestApplicationUnitTest to test the 
- * loading of @Path classes by package.
+ * Dummy class definition with @Path annotation to validate the 
+ * REST Application package scanning.
  * 
  * @see AbstractRestApplicationUnitTest
  * @author Baptiste Roth (baptiste.roth@lotaris.com)
