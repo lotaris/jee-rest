@@ -93,7 +93,7 @@ public class AbstractRestApplicationUnitTest {
 		@Override
 		protected String[] getPackages() {
 			String [] packages = new String[1];
-			packages[0] = "com.forbesdigital.jee.test";
+			packages[0] = "com.forbesdigital.jee.rest.test.dummyresource";
 			return packages;
 		}
 
