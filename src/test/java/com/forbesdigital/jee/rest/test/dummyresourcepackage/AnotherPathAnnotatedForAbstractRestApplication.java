@@ -1,4 +1,4 @@
-package com.forbesdigital.jee.test.utils;
+package com.forbesdigital.jee.rest.test.dummyresourcepackage;
 
 import javax.ws.rs.Path;
 
