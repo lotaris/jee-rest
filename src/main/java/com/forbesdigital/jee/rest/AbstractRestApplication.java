@@ -51,6 +51,8 @@ public abstract class AbstractRestApplication extends Application {
 		classes.add(JsonObjectMapper.class);
 		classes.add(ApiErrorsExceptionMapper.class);
 
+		classes.addAll(addMoreClass());
+		
 		for (MapperMappingDefinition mmd : retrieveMappersConfiguration()) {
 			MapperMapping.addMapping(mmd);
 			classes.add(mmd.getMapper());
@@ -80,6 +82,15 @@ public abstract class AbstractRestApplication extends Application {
 		final Set<Object> singletons = new HashSet<>(1);
 		singletons.add(new JacksonJsonProvider());
 		return singletons;
+	}
+	
+	/**
+	 * Let the possibility to add more classes to the configuration
+	 * 
+	 * @return The list of additional classes
+	 */
+	protected Set<Class<?>> addMoreClass() {
+		return new HashSet<>();
 	}
 
 	/**
