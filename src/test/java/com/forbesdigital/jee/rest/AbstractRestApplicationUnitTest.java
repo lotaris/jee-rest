@@ -8,6 +8,7 @@ import com.forbesdigital.jee.rest.test.dummyresourcepackage.AnotherPathAnnotated
 import com.forbesdigital.jee.rest.test.dummyresourcepackage.PathAnnotatedClassForAbstractRestApplicationUnitTest;
 import com.lotaris.rox.annotations.RoxableTest;
 import com.lotaris.rox.annotations.RoxableTestClass;
+import java.util.HashSet;
 import java.util.Set;
 import org.glassfish.jersey.jackson.JacksonFeature;
 import org.junit.Before;
@@ -58,6 +59,17 @@ public class AbstractRestApplicationUnitTest {
 		assertTrue(classes.contains(ApiErrorsExceptionMapper.class));
 	}
 	
+	@Test
+	@RoxableTest(key = "2117f852fd25")
+	public void abstractRestApplicationConstructorShouldAddAdditionalClasses() {
+		restApplication = new TestRestApplicationWithMoreClasses();
+		Set<Class<?>> classes = (Set<Class<?>>) Whitebox.getInternalState(restApplication, "classes");
+		assertTrue(classes.contains(JacksonFeature.class));
+		assertTrue(classes.contains(JsonObjectMapper.class));
+		assertTrue(classes.contains(ApiErrorsExceptionMapper.class));
+		assertTrue(classes.contains(Object.class));
+	}
+
 	public static class TestRestApplication extends AbstractRestApplication {
 
 		@Override
@@ -104,4 +116,28 @@ public class AbstractRestApplicationUnitTest {
 		
 	}
 	
+	public static class TestRestApplicationWithMoreClasses extends AbstractRestApplication {
+
+		@Override
+		protected String[] getPackages() {
+			String [] packages = new String[1];
+			packages[0] = "com.forbesdigital.jee.rest.test.dummyresource";
+			return packages;
+		}
+
+		@Override
+		protected Set<Class<?>> addMoreClasses() {
+			Set<Class<?>> classes = new HashSet<>();
+			
+			classes.add(Object.class);
+			
+			return classes;
+		}
+		
+		@Override
+		protected MapperMappingDefinition[] retrieveMappersConfiguration() {
+			return new MapperMappingDefinition[0];
+		}
+		
+	}
 }
