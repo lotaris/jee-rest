@@ -5,7 +5,7 @@
   <groupId>com.forbesdigital.jee</groupId>
   <artifactId>rest</artifactId>
   <name>FD JEE Rest</name>
-  <version>0.1.1-SNAPSHOT</version>
+  <version>0.2.0</version>
   <packaging>jar</packaging>
 
   <properties>
@@ -169,7 +169,7 @@
 
 	<profiles>
 		<profile>
-			<id>lotarisVersion</id>
+			<id>forbesDigitalVersion</id>
 
 			<build>
 				<plugins>
@@ -184,31 +184,31 @@
 
 	<distributionManagement>
 		<repository>
-			<id>LotarisReleases</id>
-			<name>Lotaris Release Repository</name>
-			<url>${settings.lotaris.nexus.lotaris.releases.url}</url>
+			<id>ForbesDigitalReleasesDeploy</id>
+			<name>Forbes Digital Release Repository</name>
+			<url>${settings.forbesdigital.nexus.lotaris.releases.url}</url>
 		</repository>
 		<snapshotRepository>
-			<id>LotarisSnapshots</id>
-			<name>Lotaris Snapshot Repository</name>
-			<url>${settings.lotaris.nexus.lotaris.snapshots.url}</url>
+			<id>ForbesDigitalSnapshotsDeploy</id>
+			<name>Forbes Digital Snapshot Repository</name>
+			<url>${settings.forbesdigital.nexus.lotaris.snapshots.url}</url>
 		</snapshotRepository>
 	</distributionManagement>
-
+	
 	<repositories>
 		<repository>
-			<id>LotarisReleases</id>
-			<name>Lotaris Releases Repository</name>
-			<url>${settings.lotaris.nexus.releases.url}</url>
+			<id>ForbesDigitalReleases</id>
+			<name>Forbes Digital Releases Repository</name>
+			<url>${settings.forbesdigital.nexus.releases.url}</url>
 			<releases/>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
 		<repository>
-			<id>LotarisSnapshots</id>
-			<name>Lotaris Snapshots Repository</name>
-			<url>${settings.lotaris.nexus.snapshots.url}</url>
+			<id>ForbesDigitalSnapshots</id>
+			<name>Forbes Digital Snapshots Repository</name>
+			<url>${settings.forbesdigital.nexus.snapshots.url}</url>
 			<releases/>
 			<snapshots>
 				<updatePolicy>never</updatePolicy>
@@ -218,15 +218,15 @@
 
 	<pluginRepositories>
 		<pluginRepository>
-			<id>LotarisReleases</id>
-			<name>Lotaris Repository</name>
-			<url>${settings.lotaris.nexus.releases.url}</url>
+			<id>ForbesDigitalReleases</id>
+			<name>Forbes Digital Releases Repository</name>
+			<url>${settings.forbesdigital.nexus.releases.url}</url>
 			<releases/>
 		</pluginRepository>
 		<pluginRepository>
-			<id>LotarisSnapshots</id>
-			<name>Lotaris Repository</name>
-			<url>${settings.lotaris.nexus.snapshots.url}</url>
+			<id>ForbesDigitalSnapshots</id>
+			<name>Forbes Digital Snapshots Repository</name>
+			<url>${settings.forbesdigital.nexus.snapshots.url}</url>
 			<snapshots/>
 		</pluginRepository>
 	</pluginRepositories>
