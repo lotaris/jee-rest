@@ -4,12 +4,3 @@
 
 ### Added
 - Added the possibility to register new classes when defining a REST Application from the `AbstractRestApplication`
-
-### Deprecated
-- Nothing
-
-### Removed
-- Nothing
-
-### Fixed
-- Nothing

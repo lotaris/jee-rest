@@ -51,7 +51,7 @@ public abstract class AbstractRestApplication extends Application {
 		classes.add(JsonObjectMapper.class);
 		classes.add(ApiErrorsExceptionMapper.class);
 
-		classes.addAll(addMoreClass());
+		classes.addAll(addMoreClasses());
 		
 		for (MapperMappingDefinition mmd : retrieveMappersConfiguration()) {
 			MapperMapping.addMapping(mmd);
@@ -89,7 +89,7 @@ public abstract class AbstractRestApplication extends Application {
 	 * 
 	 * @return The list of additional classes
 	 */
-	protected Set<Class<?>> addMoreClass() {
+	protected Set<Class<?>> addMoreClasses() {
 		return new HashSet<>();
 	}
 

@@ -126,7 +126,7 @@ public class AbstractRestApplicationUnitTest {
 		}
 
 		@Override
-		protected Set<Class<?>> addMoreClass() {
+		protected Set<Class<?>> addMoreClasses() {
 			Set<Class<?>> classes = new HashSet<>();
 			
 			classes.add(Object.class);
