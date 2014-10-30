@@ -3,9 +3,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.forbesdigital.jee</groupId>
-  <artifactId>rest</artifactId>
-  <name>FD JEE Rest</name>
-  <version>0.2.1-SNAPSHOT</version>
+  <artifactId>jee-rest</artifactId>
+  <name>JEE Rest</name>
+  <version>0.3.0</version>
   <packaging>jar</packaging>
 
   <properties>
@@ -169,7 +169,7 @@
 
 	<profiles>
 		<profile>
-			<id>forbesDigitalVersion</id>
+			<id>versioning</id>
 
 			<build>
 				<plugins>
@@ -182,55 +182,6 @@
 		</profile>		
 	</profiles>
 
-	<distributionManagement>
-		<repository>
-			<id>ForbesDigitalReleasesDeploy</id>
-			<name>Forbes Digital Release Repository</name>
-			<url>${settings.forbesdigital.nexus.lotaris.releases.url}</url>
-		</repository>
-		<snapshotRepository>
-			<id>ForbesDigitalSnapshotsDeploy</id>
-			<name>Forbes Digital Snapshot Repository</name>
-			<url>${settings.forbesdigital.nexus.lotaris.snapshots.url}</url>
-		</snapshotRepository>
-	</distributionManagement>
-	
-	<repositories>
-		<repository>
-			<id>ForbesDigitalReleases</id>
-			<name>Forbes Digital Releases Repository</name>
-			<url>${settings.forbesdigital.nexus.releases.url}</url>
-			<releases/>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>ForbesDigitalSnapshots</id>
-			<name>Forbes Digital Snapshots Repository</name>
-			<url>${settings.forbesdigital.nexus.snapshots.url}</url>
-			<releases/>
-			<snapshots>
-				<updatePolicy>never</updatePolicy>
-			</snapshots>
-		</repository>
-	</repositories>
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>ForbesDigitalReleases</id>
-			<name>Forbes Digital Releases Repository</name>
-			<url>${settings.forbesdigital.nexus.releases.url}</url>
-			<releases/>
-		</pluginRepository>
-		<pluginRepository>
-			<id>ForbesDigitalSnapshots</id>
-			<name>Forbes Digital Snapshots Repository</name>
-			<url>${settings.forbesdigital.nexus.snapshots.url}</url>
-			<snapshots/>
-		</pluginRepository>
-	</pluginRepositories>
-	
   <dependencies>
 		<dependency>
 			<groupId>com.lotaris.rox.client</groupId>
@@ -260,8 +211,8 @@
 		
 		<dependency>
 			<groupId>com.forbesdigital.jee</groupId>
-			<artifactId>validation</artifactId>
-			<version>0.1.0</version>
+			<artifactId>jee-validation</artifactId>
+			<version>0.5.0</version>
 			<scope>provided</scope>
 		</dependency>
 		

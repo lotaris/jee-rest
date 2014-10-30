@@ -1,4 +1,6 @@
-# REST Library
+# jee-rest
+
+> The REST library helps you deal with HTTP requests in a REST API. It abstracts the serialization, helps mapping errors and contains functions that make response creation easier.
 
 ## Requirements
 
@@ -27,23 +29,18 @@ $> msb
 
 In fact, to run `Maven` commands correctly on those projects, you need to be sure that the correct `settings.xml` is used. By default, `Maven` is looking for a `settings.xml` into `.m2` directory present in your `home_dir`. Then, to override this behavior, `Maven` command can take the argument `-s<pathToTheSettingsXmlFile>`. Then, if you are using different tool or command line to run the `Maven` goals, you need to ensure that the correct `settings.xml` is used (the one present in each project).
 
-## Ready to compile something
+## Building
 
-Follow the next steps:
+1. Clone the [jee-validation](https://github.com/lotaris/jee-validation) and follow the instructions to build the dependency.
 
-1. Open the [Mock Server Library][project-repo] in Netbeans
-2. You can also open the sub-modules
-3. Right click on the project
-4. Go to Custom menu
-5. Compile
+2. Clone the repository.
 
-The other goals are used by the `DevOps` team to be able to release the library on `Nexus`.
+3. Run the following command
 
-## Introduction
-
-The REST library helps you deal with HTTP requests in a REST API. It abstracts the serialization, helps mapping
-errors and contains functions that make response creation easier.
-
+```bash
+cd <projectFolder>
+mvn clean install
+```
 
 ## Bootstrapping the Library in a Maven Project
 
@@ -57,7 +54,7 @@ You can copy/paste the following dependency definition:
 <!-- Rest -->
 <dependency>
 	<groupId>com.forbesdigital.jee</groupId>
-	<artifactId>rest</artifactId>
+	<artifactId>jee-rest</artifactId>
 	<version>[[ version ]]</version>
 </dependency>
 ```
@@ -72,7 +69,7 @@ and `<artifactIdPrefix>/<artifactIdPrefix>-ejb-test/pom.xml`). This time, you wi
 ```xml
 <dependency>
 	<groupId>com.forbesdigital.jee</groupId>
-	<artifactId>rest</artifactId>
+	<artifactId>jee-rest</artifactId>
 	<scope>provided</scope>
 </dependency>
 ```
@@ -87,7 +84,7 @@ and `<artifactIdPrefix>/<artifactIdPrefix>-war-test/pom.xml`). Again, dependency
 ```xml
 <dependency>
 	<groupId>com.forbesdigital.jee</groupId>
-	<artifactId>rest</artifactId>
+	<artifactId>jee-rest</artifactId>
 </dependency>
 ```
 
@@ -157,22 +154,22 @@ There are several noteworthy parts:
   - The `retrieveMappersConfiguration()` method was added by the REST libary and provides a way of mapping exceptions to
     a specific error code.
 
-## Contribute
+## Contributing
 
-If you want to propose improvements to that library, follow the [instructions on confluence][confluence]
+* [Fork](https://help.github.com/articles/fork-a-repo)
+* Create a topic branch - `git checkout -b feature`
+* Push to your branch - `git push origin feature`
+* Create a [pull request](http://help.github.com/pull-requests/) from your branch
 
-## Authors
+Please add a changelog entry with your name for new features and bug fixes.
 
-  - [Laurent Prevost][lprevost]
-  - [Simon Oulevay][soulevay]
+## License
 
+**jee-rest** is licensed under the [MIT License](http://opensource.org/licenses/MIT).
+See [LICENSE.txt](LICENSE.txt) for the full text.
 
 [AbstractRestApplication]: src/main/java/com/forbesdigital/jee/rest/AbstractRestApplication.java
 [ExceptionMapper]: https://jersey.java.net/apidocs/2.11/jersey/javax/ws/rs/ext/ExceptionMapper.html
 [getSingletons]: https://jersey.java.net/apidocs/2.11/jersey/javax/ws/rs/core/Application.html#getSingletons()
 [providers]: src/main/java/com/forbesdigital/jee/rest/providers
-[lprevost]: /users/lprevost
-[soulevay]: /users/soulevay
 [maven-bootstrap-project]: https://github.com/lotaris/maven-settings-bootstrap
-[project-repo]: http://stash.aws.onlotaris.com/projects/LIB/repos/fd-jee-rest/browse
-[confluence]: https://lotaris.atlassian.net/wiki/display/FDW/How+to+Work+with+Libraries

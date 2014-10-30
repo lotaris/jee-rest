@@ -8,8 +8,6 @@
 			<goal>install</goal>
 			<goal>rox-junit:junit</goal>
 			<goal>-e</goal>
-			<goal>-PforbesDigitalBuildSource</goal>
-			<goal>-ssettings.xml</goal>
 		</goals>
 	</action>
   <action>
@@ -20,8 +18,6 @@
       <goal>install</goal>
 			<goal>deploy</goal>
       <goal>-e</goal>
-      <goal>-PforbesDigitalBuildSource</goal>
-			<goal>-ssettings.xml</goal>
     </goals>
   </action>
 	<action>
@@ -30,9 +26,7 @@
 		<goals>
 			<goal>versions:set</goal>
 			<goal>versions:commit</goal>
-			<goal>-PforbesDigitalBuildSource</goal>
-			<goal>-PforbesDigitalVersion</goal>
-			<goal>-ssettings.xml</goal>
+			<goal>-Pversioning</goal>
 		</goals>
 	</action>
 </actions>
