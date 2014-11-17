@@ -2,19 +2,6 @@
 
 > The REST library helps you deal with HTTP requests in a REST API. It abstracts the serialization, helps mapping errors and contains functions that make response creation easier.
 
-## Building
-
-1. Clone the [jee-validation](https://github.com/lotaris/jee-validation) and follow the instructions to build the dependency.
-
-2. Clone the repository.
-
-3. Run the following command
-
-```bash
-cd <projectFolder>
-mvn clean install
-```
-
 ## Bootstrapping the Library in a Maven Project
 
 In a standard Maven multi-module project like we have (EAR / EJB / WAR / JAR), you'll need to setup the dependency as
@@ -26,9 +13,9 @@ You can copy/paste the following dependency definition:
 ```xml
 <!-- Rest -->
 <dependency>
-	<groupId>com.forbesdigital.jee</groupId>
+	<groupId>com.lotaris.jee</groupId>
 	<artifactId>jee-rest</artifactId>
-	<version>[[ version ]]</version>
+	<version>0.3.1</version>
 </dependency>
 ```
 
@@ -41,7 +28,7 @@ and `<artifactIdPrefix>/<artifactIdPrefix>-ejb-test/pom.xml`). This time, you wi
 
 ```xml
 <dependency>
-	<groupId>com.forbesdigital.jee</groupId>
+	<groupId>com.lotaris.jee</groupId>
 	<artifactId>jee-rest</artifactId>
 	<scope>provided</scope>
 </dependency>
@@ -56,7 +43,7 @@ and `<artifactIdPrefix>/<artifactIdPrefix>-war-test/pom.xml`). Again, dependency
 
 ```xml
 <dependency>
-	<groupId>com.forbesdigital.jee</groupId>
+	<groupId>com.lotaris.jee</groupId>
 	<artifactId>jee-rest</artifactId>
 </dependency>
 ```
@@ -141,8 +128,8 @@ Please add a changelog entry with your name for new features and bug fixes.
 **jee-rest** is licensed under the [MIT License](http://opensource.org/licenses/MIT).
 See [LICENSE.txt](LICENSE.txt) for the full text.
 
-[AbstractRestApplication]: src/main/java/com/forbesdigital/jee/rest/AbstractRestApplication.java
+[AbstractRestApplication]: src/main/java/com/lotaris/jee/rest/AbstractRestApplication.java
 [ExceptionMapper]: https://jersey.java.net/apidocs/2.11/jersey/javax/ws/rs/ext/ExceptionMapper.html
 [getSingletons]: https://jersey.java.net/apidocs/2.11/jersey/javax/ws/rs/core/Application.html#getSingletons()
-[providers]: src/main/java/com/forbesdigital/jee/rest/providers
+[providers]: src/main/java/com/lotaris/jee/rest/providers
 [maven-bootstrap-project]: https://github.com/lotaris/maven-settings-bootstrap
